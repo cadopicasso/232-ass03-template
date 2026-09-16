@@ -46,7 +46,13 @@ int   sum_chain(Node *headPtr);
 
 void test_swap_basic(void)
 {
-    // TODO
+    int a=5, b=3;
+
+    swap(&a,&b);
+
+    TEST_ASSERT_EQUAL(3,a);
+
+    TEST_ASSERT_EQUAL(5,b);
 }
 
 
@@ -60,7 +66,13 @@ void test_swap_basic(void)
 
 void test_swap_equal(void)
 {
-    // TODO
+    int a=3, b=3;
+
+    swap(&a,&b);
+
+    TEST_ASSERT_EQUAL(3,a);
+    
+    TEST_ASSERT_EQUAL(5,b);
 }
 
 
@@ -74,7 +86,11 @@ void test_swap_equal(void)
 
 void test_find_last_basic(void)
 {
-    // TODO
+    char a ="af";
+
+    char *b=find_last_char(a);
+
+    //TEST_ASSERT_EQUAL_STRING("f",*b);
 }
 
 
@@ -118,7 +134,14 @@ void test_find_last_empty(void)
 
 void test_link_three_chain(void)
 {
-    // TODO
+    Node Node1;
+    Node Node2;
+    Node Node3;
+    link_three(&Node1,&Node2,&Node3);
+
+    TEST_ASSERT_TRUE(&Node2==Node1.nextPtr);
+    TEST_ASSERT_TRUE(&Node3==Node2.nextPtr);
+    TEST_ASSERT_TRUE(NULL==Node3.nextPtr);
 }
 
 
@@ -134,7 +157,15 @@ void test_link_three_chain(void)
 
 void test_remove_middle_reconnects(void)
 {
-    // TODO
+    Node NodeA;
+    Node NodeB;
+    Node NodeC;
+    link_three(&NodeA,&NodeB,&NodeC);
+
+    remove_middle(&NodeA,&NodeB,&NodeC);
+
+    TEST_ASSERT_TRUE(&NodeC==NodeA.nextPtr);
+    TEST_ASSERT_TRUE(NULL==NodeB.nextPtr);
 }
 
 
@@ -150,7 +181,15 @@ void test_remove_middle_reconnects(void)
 
 void test_remove_last_truncates(void)
 {
-    // TODO
+    Node NodeA;
+    Node NodeB;
+    Node NodeC;
+    link_three(&NodeA,&NodeB,&NodeC);
+
+    remove_last(&NodeB);
+
+    TEST_ASSERT_TRUE(&NodeB==NodeA.nextPtr);
+    TEST_ASSERT_TRUE(NULL==NodeB.nextPtr);
 }
 
 
@@ -166,7 +205,15 @@ void test_remove_last_truncates(void)
 
 void test_remove_first_isolates(void)
 {
-    // TODO
+    Node NodeA;
+    Node NodeB;
+    Node NodeC;
+    link_three(&NodeA,&NodeB,&NodeC);
+
+    remove_first(&NodeA);
+
+    TEST_ASSERT_TRUE(NULL==NodeA.nextPtr);
+    TEST_ASSERT_TRUE(&NodeC==NodeB.nextPtr);
 }
 
 
@@ -180,7 +227,16 @@ void test_remove_first_isolates(void)
 
 void test_swap_ptrs_redirects(void)
 {
-    // TODO
+    int a=1;
+    int* aPtr=&a;
+    int b=2;
+    int* bPtr=&b;
+
+    swap_ptrs(&aPtr,&bPtr);
+
+    TEST_ASSERT_EQUAL(2,*aPtr);
+    
+    TEST_ASSERT_EQUAL(1,*bPtr);
 }
 
 
@@ -195,7 +251,16 @@ void test_swap_ptrs_redirects(void)
 
 void test_swap_ptrs_values_unchanged(void)
 {
-    // TODO
+    int a=1;
+    int* aPtr=&a;
+    int b=2;
+    int* bPtr=&b;
+
+    swap_ptrs(&aPtr,&bPtr);
+
+    TEST_ASSERT_EQUAL(1,a);
+    
+    TEST_ASSERT_EQUAL(2,b);
 }
 
 
@@ -210,7 +275,11 @@ void test_swap_ptrs_values_unchanged(void)
 
 void test_nullify_sets_null(void)
 {
-    // TODO
+    int x = 5;
+    int *pPtr = &x;
+    nullify(&pPtr);
+
+    TEST_ASSERT_EQUAL(NULL,pPtr);
 }
 
 
@@ -225,7 +294,11 @@ void test_nullify_sets_null(void)
 
 void test_nullify_value_unchanged(void)
 {
-    // TODO
+    int x = 5;
+    int *pPtr = &x;
+    nullify(&pPtr);
+
+    TEST_ASSERT_EQUAL(5,x);
 }
 
 
@@ -240,7 +313,11 @@ void test_nullify_value_unchanged(void)
 
 void test_assign_bytes_first_and_last(void)
 {
-    // TODO
+    long long a;
+    assign_bytes(&a);
+
+    TEST_ASSERT_TRUE(a==1);
+    TEST_ASSERT_TRUE(a==1);
 }
 
 
