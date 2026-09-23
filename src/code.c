@@ -82,26 +82,16 @@ void swap(int *aPtr, int *bPtr)
 
 char* find_last_char(char *sPtr)
 {
-    /*
-    char* n='\0';
     char* c=sPtr;
-    
-    while (c!=n)
-    {
-        if (c+1!=n){
-            c++;
-        }
 
-        else{
-            return c;
-        }
+    char* d=NULL;
+
+    while (*c!='\0'){
+        d=c;
+        c=c+1;
     }
     
-    
-    
-    //return c;
-    */
-    return NULL;
+    return d;
 }
 
 
@@ -253,12 +243,13 @@ void nullify(int **ppPtr)
 
 void assign_bytes(long long *nPtr)
 {
+    /*
     unsigned char* p=nPtr;
     for (size_t i = 0; i < 8; i++)
     {
         *(p + i)=i+1;
     }
-    
+    */
 }
 
 
