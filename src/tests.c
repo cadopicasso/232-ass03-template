@@ -105,7 +105,11 @@ void test_find_last_basic(void)
 
 void test_find_last_single(void)
 {
-    // TODO
+    char a[] = "f";
+
+    char *b=find_last_char(a);
+
+    TEST_ASSERT_EQUAL_STRING("f",b);
 }
 
 
@@ -118,7 +122,11 @@ void test_find_last_single(void)
 
 void test_find_last_empty(void)
 {
-    // TODO
+    char a[] ="";
+
+    char *b=find_last_char(a);
+
+    TEST_ASSERT_EQUAL_STRING(NULL,b);
 }
 
 
@@ -314,12 +322,12 @@ void test_nullify_value_unchanged(void)
 
 void test_assign_bytes_first_and_last(void)
 {
-    //long long a;
-    //assign_bytes(&a);
+    long long a=0;
+    assign_bytes(&a);
 
-    //unsigned char* b=&a;
-    //TEST_ASSERT_EQUAL(1,b[0]);
-    //TEST_ASSERT_EQUAL(8,b[7]);
+    unsigned char* b=(unsigned char *)&a;
+    TEST_ASSERT_EQUAL(1,b[0]);
+    TEST_ASSERT_EQUAL(8,b[7]);
     
 }
 
@@ -335,15 +343,15 @@ void test_assign_bytes_first_and_last(void)
 
 void test_assign_bytes_all(void)
 {
-    //long long a;
-    //assign_bytes(&a);
+    long long a=0;
+    assign_bytes(&a);
 
-    //unsigned char* b=&a;
+    unsigned char* b=(unsigned char *)&a;
     
-    //for (size_t i = 0; i < 8; i++)
-    //{
-        //TEST_ASSERT_EQUAL(i+1,b[i]);
-    //}
+    for (size_t i = 0; i < 8; i++)
+    {
+        TEST_ASSERT_EQUAL(i+1,b[i]);
+    }
     
 }
 
