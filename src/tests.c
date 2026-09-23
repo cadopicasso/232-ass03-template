@@ -1,6 +1,7 @@
 #ifndef UNITY_H
 #define UNITY_H
-#include "../lib/unity.h"
+//#include "../lib/unity.h"
+#include "unity.h"
 #endif
 
 // ============================================================
